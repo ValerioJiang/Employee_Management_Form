@@ -64,6 +64,8 @@ public class DBUtil {
 			dbDisconnect();
 		}
 	}
+	
+	
 	public static ResultSet dbExecute(String sqlQuery) throws ClassNotFoundException, SQLException{
 		Statement stmt = null;
 		ResultSet rs = null;
