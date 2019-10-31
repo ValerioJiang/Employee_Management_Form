@@ -16,7 +16,7 @@ public class DBUtil {
 	private static final String connStr = "jdbc:mysql://127.0.0.1:3306/fxdemo"+ "?useUnicode=true&useJDBCCompliantTimezoneShift="
 			+ "true&useLegacy"
 			+ "DatetimeCode="
-			+ "false&serverTimezone=UTC";
+			+ "false&serverTimezone=UTC";//timezone changed to UTC to prevent the error about the timezone
 	public static void dbConnect() throws SQLException,ClassNotFoundException{
 		try {
 			Class.forName(JDBC_DRIVER);

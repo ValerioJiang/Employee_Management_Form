@@ -16,4 +16,15 @@ public class EmployeeDAO {
 			throw e;
 		}
 	}
+	public static void updateEmployee(int id, String email) throws SQLException, ClassNotFoundException{
+		String sql ="update employee set email = '"+email+"' where id = '"+id+"' ";
+		try {
+			DBUtil.dbExcecuteQuery(sql);
+
+		}catch(SQLException e){
+			System.out.println("Error occure while updating the record ");
+			e.printStackTrace();
+			throw e;
+		}
+	}
 }
