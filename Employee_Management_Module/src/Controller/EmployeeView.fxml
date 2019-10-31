@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EmployeeController">
+   <top>
+      <Label alignment="CENTER" prefHeight="100.0" prefWidth="800.0" text="Gestione Dipendenti" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Times New Roman Italic" size="71.0" />
+         </font>
+      </Label>
+   </top>
+   <left>
+      <VBox fx:id="leftGestDip" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="345.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="51.0" prefWidth="345.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="41.0" prefWidth="89.0" text="First Name" />
+                  <TextField fx:id="txtFirstName" prefHeight="31.0" prefWidth="251.0" promptText="Enter First Name" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="51.0" prefWidth="345.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="36.0" prefWidth="89.0" text="Last Name" />
+                  <TextField fx:id="txtLastName" prefHeight="31.0" prefWidth="251.0" promptText="Enter Last Name" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="51.0" prefWidth="345.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="51.0" prefWidth="89.0" text="Email" />
+                  <TextField fx:id="txtEmail" prefHeight="31.0" prefWidth="251.0" promptText="Enter Email" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="339.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Clear" />
+                  <Button fx:id="addEmployee" mnemonicParsing="false" onAction="#insertEmployee" text="Add Employee" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <VBox fx:id="resConsole" prefHeight="229.0" prefWidth="355.0">
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="355.0" text="Result Console : " />
+                  <TextArea fx:id="resultConsole" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
