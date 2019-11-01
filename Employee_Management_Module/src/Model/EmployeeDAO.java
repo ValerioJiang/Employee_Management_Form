@@ -42,6 +42,8 @@ public class EmployeeDAO {
 			throw e;
 		}
 	}
+	
+	//REFRESH ALL
 	public static ObservableList<Employee> getAllRecords() throws SQLException, ClassNotFoundException{
 		String sql ="select * from employee";
 		try {
@@ -72,6 +74,18 @@ public class EmployeeDAO {
 			e.printStackTrace();
 			throw e;
 		}
-
+	}
+	public static ObservableList<Employee> searchEmployee(int employeeID) throws SQLException,ClassNotFoundException{
+		String sql = "select * from employee where id = "+employeeID;
+		try {
+			ResultSet rsSet = DBUtil.dbExecute(sql);
+			ObservableList<Employee> empListSearch =  getEmployeeObject(rsSet);
+			return empListSearch;
+		}
+		catch(SQLException e) {
+			System.out.println("Error occured while searching employee "+e);
+			e.printStackTrace();
+			throw e;
+		}
 	}
 }

@@ -53,6 +53,8 @@ public class EmployeeController {
 		try{
 			EmployeeDAO.insertEmployee(txtFirstName.getText(), txtLastName.getText(), txtEmail.getText());
 			resultConsole.setText(""+succConn);
+			ObservableList<Employee> empList = EmployeeDAO.getAllRecords();
+			populateTable(empList);
 		}catch(SQLException e) {
 			System.out.println("Exception occur in insertion "+e);
 			e.printStackTrace();
@@ -68,6 +70,8 @@ public class EmployeeController {
 			String updEmail = ""+searchEmpMail.getText();
 			EmployeeDAO.updateEmployee(employeeID, updEmail);
 			resultConsole.setText(""+succUpd);
+			ObservableList<Employee> empList = EmployeeDAO.getAllRecords();
+			populateTable(empList);
 		}catch(SQLException e) {
 			System.out.println("Error has been occured while updating the data"+e);
 			e.printStackTrace();
@@ -82,6 +86,24 @@ public class EmployeeController {
 			int employeeID = Integer.parseInt(searchEmpId.getText());
 			EmployeeDAO.deleteEmployeeById(employeeID);
 			resultConsole.setText(""+succDel);
+			ObservableList<Employee> empList = EmployeeDAO.getAllRecords();
+			populateTable(empList);
+		}catch(SQLException e) {
+			System.out.println("Error has been occured while deleting the data"+e);
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	@FXML
+	private void searchEmployee(ActionEvent event) throws ClassNotFoundException,SQLException{
+		try {
+			String succSearch = "Success! Your employee id has been searched correctly to the DB";
+			int employeeID = Integer.parseInt(searchEmpId.getText());
+			ObservableList<Employee> empList = EmployeeDAO.searchEmployee(employeeID);
+			resultConsole.setText(""+succSearch);
+			
+			populateTable(empList);
 		}catch(SQLException e) {
 			System.out.println("Error has been occured while deleting the data"+e);
 			e.printStackTrace();
