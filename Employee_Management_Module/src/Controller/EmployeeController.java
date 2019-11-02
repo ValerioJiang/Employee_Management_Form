@@ -31,19 +31,19 @@ public class EmployeeController {
 
 	@FXML
 	private TextField searchEmpMail;
-	
+
 	@FXML
 	private TableColumn<Employee,Integer> colEmpId;
-	
+
 	@FXML
 	private TableColumn<Employee,String> colEmpName;
-	
+
 	@FXML
 	private TableColumn<Employee,String> colEmpLastName;
-	
+
 	@FXML
 	private TableColumn<Employee,String> colEmpEmail;
-	
+
 	@FXML
 	private TableView<Employee> employeeTable;
 
@@ -94,23 +94,25 @@ public class EmployeeController {
 			throw e;
 		}
 	}
-	
+
 	@FXML
 	private void searchEmployee(ActionEvent event) throws ClassNotFoundException,SQLException{
-		try {
-			String succSearch = "Success! Your employee id has been searched correctly to the DB";
-			int employeeID = Integer.parseInt(searchEmpId.getText());
-			ObservableList<Employee> empList = EmployeeDAO.searchEmployee(employeeID);
-			resultConsole.setText(""+succSearch);
-			
-			populateTable(empList);
-		}catch(SQLException e) {
-			System.out.println("Error has been occured while deleting the data"+e);
-			e.printStackTrace();
-			throw e;
+		ObservableList<Employee> list = EmployeeDAO.searchEmployee(searchEmpId.getText());
+		if(list.size() > 0) {
+			populateTable(list);
+			resultConsole.setText("Record has been found");
+		}
+		else {
+			resultConsole.setText("Record hasn't found");
 		}
 	}
-	
+
+	@FXML
+	private void searchAllEmployee(ActionEvent event)throws SQLException,ClassNotFoundException{
+		ObservableList<Employee> list = EmployeeDAO.getAllRecords();
+		populateTable(list);
+	}
+
 	@FXML
 	private void initialize() throws Exception{
 		colEmpId.setCellValueFactory(cellData -> cellData.getValue().getEmployeeId().asObject());
@@ -121,8 +123,15 @@ public class EmployeeController {
 		populateTable(empList);
 	}
 
+	@FXML
+	private void clear()throws Exception{
+		txtFirstName.setText("");
+		txtLastName.setText("");
+		txtEmail.setText("");
+	}
+
 	private void populateTable(ObservableList<Employee> empList) {
 		employeeTable.setItems(empList);
-		
+
 	}
 }

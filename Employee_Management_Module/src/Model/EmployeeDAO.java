@@ -42,7 +42,7 @@ public class EmployeeDAO {
 			throw e;
 		}
 	}
-	
+
 	//REFRESH ALL
 	public static ObservableList<Employee> getAllRecords() throws SQLException, ClassNotFoundException{
 		String sql ="select * from employee";
@@ -50,7 +50,7 @@ public class EmployeeDAO {
 			ResultSet rsSet =  DBUtil.dbExecute(sql);
 			ObservableList<Employee> empList =  getEmployeeObject(rsSet);
 			return empList;
-			
+
 		}catch(SQLException e){
 			System.out.println("Error occured while deleting the record "+e);
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class EmployeeDAO {
 			throw e;
 		}
 	}
-	public static ObservableList<Employee> searchEmployee(int employeeID) throws SQLException,ClassNotFoundException{
+	public static ObservableList<Employee> searchEmployee(String employeeID) throws SQLException,ClassNotFoundException{
 		String sql = "select * from employee where id = "+employeeID;
 		try {
 			ResultSet rsSet = DBUtil.dbExecute(sql);
