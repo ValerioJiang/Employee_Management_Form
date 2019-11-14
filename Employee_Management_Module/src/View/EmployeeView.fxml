@@ -55,11 +55,6 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </HBox>
-                        <Label prefHeight="40.0" prefWidth="527.0" text="          Error : ID type or Email type of input are wrong" textFill="RED">
-                           <font>
-                              <Font name="Times New Roman Bold" size="15.0" />
-                           </font>
-                        </Label>
                         <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="474.0" spacing="20.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#searchEmployee" text="Search" />
